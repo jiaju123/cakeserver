@@ -12,6 +12,10 @@ var login = require('./routes/login');
 var goods = require('./routes/goods');
 var car = require('./routes/car');
 
+app.use('/admin/login',login);
+app.use('/admin/goods',goods);
+app.use('/admin/car',car);
+
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -36,9 +40,59 @@ let morePhotos = multer.diskStorage({
 });
 let upload = multer({storage:morePhotos});
 
-app.use('/admin/login',login);
-app.use('/admin/goods',goods);
-app.use('/admin/car',car);
+
+
+
+
+
+
+app.get("/api/text",function(req,res){
+    console.log('ok');
+   res.send([12,12,312,32,33,13,1312])
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -56,7 +110,7 @@ app.use(function(err, req, res, next) {
   res.send('error');
 });
 
-app.listen(123,function(){
+app.listen(3000,function(){
   console.log('服务器已启动');
 });
 
