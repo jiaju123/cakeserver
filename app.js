@@ -6,7 +6,6 @@ var multer = require('multer');
 var session = require('express-session');
 var svgCaptcha = require('svg-captcha');
 var app = express();
-var sql = require("./lib/pool");
 
 var login = require('./routes/login');
 var goods = require('./routes/goods');
