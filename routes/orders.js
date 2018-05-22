@@ -3,6 +3,7 @@
  */
 var express = require('express');
 var router = new express();
+var query = require("../lib/pool");
 
 router.get('/',function(req,res){
     res.send('orders');

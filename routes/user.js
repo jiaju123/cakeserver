@@ -3,9 +3,13 @@
  */
 var express = require('express');
 var router = new express();
+var query = require("../lib/pool");
 
 router.get('/',function(req,res){
-    res.send('user');
+    query("select * from user",function(err,data){
+        if (err) throw err;
+        res.json(data);
+    })
 })
 
 
