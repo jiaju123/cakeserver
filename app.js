@@ -11,10 +11,16 @@ var sql = require("./lib/pool");
 var login = require('./routes/login');
 var goods = require('./routes/goods');
 var car = require('./routes/car');
+var user = require('./routes/user');
+var category = require('./routes/category');
+var orders = require('./routes/orders');
 
 app.use('/admin/login',login);
 app.use('/admin/goods',goods);
 app.use('/admin/car',car);
+app.use('/admin/user',user);
+app.use('/admin/category',category);
+app.use('/admin/orders',orders);
 
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
@@ -40,59 +46,9 @@ let morePhotos = multer.diskStorage({
 });
 let upload = multer({storage:morePhotos});
 
-
-
-
-
-
-
 app.get("/api/text",function(req,res){
-    console.log('ok');
-   res.send([12,12,312,32,33,13,1312])
+   res.send('可以访问到服务器')
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
