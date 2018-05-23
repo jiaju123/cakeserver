@@ -12,13 +12,8 @@ router.get('/', function(req, res) {
             return;
         }
         res.json(data);
-<<<<<<< HEAD
     });
-=======
-    })
->>>>>>> a2ad7e6caead6f1551cfc44eea3c851ac4cb01e1
 });
-
 router.post('/upd', function(req, res) {
     console.log(req.body);
     // let id=req.body.id;
