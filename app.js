@@ -14,12 +14,7 @@ var user = require('./routes/user');
 var category = require('./routes/category');
 var orders = require('./routes/orders');
 
-app.use('/api/admin/login',login);
-app.use('/api/admin/goods',goods);
-app.use('/api/admin/car',car);
-app.use('/api/admin/user',user);
-app.use('/api/admin/category',category);
-app.use('/api/admin/orders',orders);
+
 
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
@@ -45,7 +40,12 @@ let morePhotos = multer.diskStorage({
 });
 let upload = multer({storage:morePhotos});
 
-
+app.use('/api/admin/login',login);
+app.use('/api/admin/goods',goods);
+app.use('/api/admin/car',car);
+app.use('/api/admin/user',user);
+app.use('/api/admin/category',category);
+app.use('/api/admin/orders',orders);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
