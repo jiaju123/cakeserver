@@ -6,11 +6,11 @@ var router = new express();
 var query = require("../lib/pool");
 
 router.get('/',function(req,res){
-    query("select * from orders",function(err,data){
+    query("select address.id,address.address,address.city,address.zipcode,address.name,address.tel,address.uid,user.nickname from address,user where address.uid=user.id",function(err,data){
         if (err) throw err;
         res.json(data);
     })
-});
+})
 
 
 

@@ -19,11 +19,11 @@ router.get('/code', function (req, res) {
 router.post('/check',function (req,res) {
     let zhanghao=req.body.zhanghao;
     let pass=req.body.pass;
-    // let code=req.body.code
-    // if(code.toUpperCase()!==req.session.code.toUpperCase()){
-    //     res.send('验证码错误')
-    //     return
-    // }
+    let code=req.body.code
+    if(code.toUpperCase()!==req.session.code.toUpperCase()){
+        res.send('验证码错误')
+        return
+    }
     query(`select * from user where zhanghao='${zhanghao}'`,function (err,result) {
         if(err){
             throw err
