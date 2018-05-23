@@ -12,6 +12,12 @@ router.get('/',function(req,res){
     })
 });
 
-
+router.post('/add',function(req,res){
+    console.log(req);
+    // query("select * from category",function(err,data){
+    //     if (err) throw err;
+    //     res.json(data);
+    // })
+});
 
 module.exports = router;

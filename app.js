@@ -13,6 +13,7 @@ var car = require('./routes/car');
 var user = require('./routes/user');
 var category = require('./routes/category');
 var orders = require('./routes/orders');
+var adress = require('./routes/adress');
 
 
 
@@ -46,6 +47,7 @@ app.use('/api/admin/car',car);
 app.use('/api/admin/user',user);
 app.use('/api/admin/category',category);
 app.use('/api/admin/orders',orders);
+app.use('/api/admin/address',address);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
