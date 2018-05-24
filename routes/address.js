@@ -6,7 +6,7 @@ var router = new express();
 var query = require("../lib/pool");
 
 router.get('/',function(req,res){
-    query("select address.id,address.address,address.city,address.zipcode,address.name,address.tel,address.uid,user.nickname from address,user where address.uid=user.id",function(err,data){
+    query("select address.id,address.address,address.city,address.zipcode,address.name,address.tel,address.uid,suser.nickname from address,suser where address.uid=suser.id",function(err,data){
         if (err) throw err;
         res.json(data);
     })
