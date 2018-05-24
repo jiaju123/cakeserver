@@ -14,6 +14,7 @@ var user = require('./routes/user');
 var category = require('./routes/category');
 var orders = require('./routes/orders');
 var address = require('./routes/address');
+var main = require('./routes/main');
 
 
 
@@ -44,6 +45,7 @@ let upload = multer({storage:morePhotos});
 app.use('/api/admin/login',login);
 app.use('/api/admin/goods',goods);
 app.use('/api/admin/car',car);
+app.use('/api/admin/main',main);
 app.use('/api/admin/user',user);
 app.use('/api/admin/category',category);
 app.use('/api/admin/orders',orders);
