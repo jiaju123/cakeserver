@@ -13,11 +13,19 @@ router.get('/',function(req,res){
 });
 
 router.post('/add',function(req,res){
-    console.log(req);
-    // query("select * from category",function(err,data){
-    //     if (err) throw err;
-    //     res.json(data);
-    // })
+    let name = req.body.name;
+    let ename = req.body.ename;
+    query(`insert into category(name,ename) value('${name}','${ename}')`,function(err,data){
+       if(data.affectedRows===1){
+           res.send('ok');
+       }else{
+           throw err;
+       }
+    })
 });
 
+router.get('/edit',function(req,res){
+    let id=req.query.id;
+    console.log(id);
+});
 module.exports = router;
