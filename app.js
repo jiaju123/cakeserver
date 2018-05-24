@@ -16,7 +16,13 @@ var orders = require('./routes/orders');
 var address = require('./routes/address');
 var main = require('./routes/main');
 
-
+var inlogin = require('./routes/index/inlogin');
+var inzhuce = require('./routes/index/inzhuce');
+var innav = require('./routes/index/innav');
+var index = require('./routes/index/index');
+var incate = require('./routes/index/incate');
+var inabout = require('./routes/index/inabout');
+var incar = require('./routes/index/incar');
 
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
@@ -50,6 +56,14 @@ app.use('/api/admin/user',user);
 app.use('/api/admin/category',category);
 app.use('/api/admin/orders',orders);
 app.use('/api/admin/address',address);
+
+app.use('/api/index/inlogin',inlogin);
+app.use('/api/index/inzhuce',inzhuce);
+app.use('/api/index/innav',innav);
+app.use('/api/index/index',index);
+app.use('/api/index/incate',incate);
+app.use('/api/index/inabout',inabout);
+app.use('/api/index/incar',incar);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

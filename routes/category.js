@@ -26,6 +26,15 @@ router.post('/add',function(req,res){
 
 router.get('/edit',function(req,res){
     let id=req.query.id;
-    console.log(id);
+    query(`select * from category where id=${id}`,function(err,data){
+        res.json(data);
+    })
+});
+
+router.get('/editcheck',function(req,res){
+    let id=req.query.id;
+    query(`update category set  where id=${id}`,function(err,data){
+        res.json(data);
+    })
 });
 module.exports = router;
