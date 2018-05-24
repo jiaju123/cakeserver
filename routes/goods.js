@@ -37,10 +37,15 @@ router.post('/add',function(req,res){
     let body = req.body
     let img = JSON.parse(body.fileList)
     let str = []
+    console.log(img);
     img.forEach(val => {
         if (val.response) {
             let newpath = "/" + Date.now() + val.name
-            fs.renameSync(val.response, './public' + newpath)
+            let input = fs.createReadStream(val.response);
+            let output = fs.createWriteStream('./public/img'+newpath);
+            input.pipe(output,function () {
+                fs.unlinkSync(val.response);
+            });
             str.push({name: val.name, url: newpath})
         } else {
             str.push({name: val.name, url: val.url})
@@ -48,16 +53,6 @@ router.post('/add',function(req,res){
     })
     console.log(req.body);
     res.send(str)
-
-    // let name = req.body.name;
-    // let ename = req.body.ename;
-    // query(`insert into goods(name,ename) value('${name}','${ename}')`,function(err,data){
-    //     if(data.affectedRows===1){
-    //         res.send('ok');
-    //     }else{
-    //         throw err;
-    //     }
-    // })
 });
 
 
@@ -89,6 +84,9 @@ router.post('/form', function (req, res) {
     res.send(str)
 
 });
+
+
+
 // app.post('/upload',upload.single('file'),function (req,res,next) {
 //     res.send(req.file.path);
 //
