@@ -27,7 +27,7 @@ var incar = require('./routes/index/incar');
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'upload')));
+app.use('/api',express.static(path.join(__dirname, 'public')));
 
 //session
 app.use(session({
