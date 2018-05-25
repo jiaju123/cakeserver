@@ -24,7 +24,7 @@ router.post('/check',function (req,res) {
         res.send('验证码错误')
         return
     }
-    query(`select * from user where zhanghao='${zhanghao}'`,function (err,result) {
+    query(`select * from suser where zhanghao='${zhanghao}'`,function (err,result) {
         if(err){
             throw err
         }

@@ -1,5 +1,5 @@
 /**
- * Created by Administrator on 2018/5/22.
+ * Created by Administrator on 2018/5/24.
  */
 var express = require('express');
 var router = new express();
@@ -12,24 +12,6 @@ router.get('/', function(req, res) {
             return;
         }
         res.json(data);
-    });
-});
-router.post('/upd', function(req, res) {
-    console.log(req.body);
-    // let id=req.body.id;
-
-    let pass=req.body.pass;
-    console.log(pass)
-    query(`update user set pass='${pass}' where zhanghao='admin'`,function (err, data) {
-        if (err) {
-            throw err;
-            return;
-        }
-        if(data.affectedRows===1){
-            res.send("1")
-        }else {
-            res.send("0");
-        }
     });
 });
 
