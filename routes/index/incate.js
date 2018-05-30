@@ -5,8 +5,11 @@ var express = require('express');
 var router = new express();
 var query = require("../../lib/pool");
 
-// router.get('/cate',function (req,res) {
-//     res.send(body);
-// })
+// router.get('/',function(req,res){
+//     query("select * from goods",function(err,data){
+//         if (err) throw err;
+//         res.json(data);
+//     })
+// });
 
 module.exports = router;
