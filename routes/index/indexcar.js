@@ -6,8 +6,9 @@ var router = new express();
 var query = require("../../lib/pool");
 
 router.get('/',function(req,res){
-    query(' select * from orders',function(err,data){
-        res.json(data);
+    console.log(1);
+        query(' select * from orders',function(err,data){
+            res.json(data);
     })
 });
 
