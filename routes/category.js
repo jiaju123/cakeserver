@@ -31,10 +31,16 @@ router.get('/edit',function(req,res){
     })
 });
 
-router.get('/editcheck',function(req,res){
+router.post('/editcheck',function(req,res){
+    let name= req.body.name;
+    let ename= req.body.ename;
     let id=req.query.id;
-    query(`update category set  where id=${id}`,function(err,data){
-        res.json(data);
+    query(`update category set name='${name}',ename='${ename}' where id=${id}`,function(err,data){
+        if(data.affectedRows===1){
+            res.send('ok');
+        }else{
+            throw err;
+        }
     })
 });
 module.exports = router;

@@ -25,6 +25,7 @@ var incate = require('./routes/index/incate');
 var inabout = require('./routes/index/inabout');
 var incar = require('./routes/index/incar');
 var indexcar = require('./routes/index/indexcar');
+var xiangqing = require('./routes/index/xiangqing');
 
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
@@ -68,6 +69,7 @@ app.use('/api/index/incate',incate);
 app.use('/api/index/inabout',inabout);
 app.use('/api/index/incar',incar);
 app.use('/api/index/indexcar',indexcar);
+app.use('/api/index/xiangqing',xiangqing);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
