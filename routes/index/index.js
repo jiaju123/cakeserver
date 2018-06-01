@@ -10,5 +10,4 @@ router.get('/',function(req,res){
         res.json(data);
     })
 });
-
 module.exports = router;
