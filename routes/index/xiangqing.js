@@ -8,5 +8,19 @@ router.get('/',function(req,res){
         res.json(data);
     })
 });
+router.post('/xinxi',function(req,res){
+    let data=req.body;
+    let id=data.id;
+    let text=data.text;
+    let count=data.count;
+    console.log(id,text,count);
+    query(`insert into car (name,taste,price,count,gid) values ('','${text}','','${count}','${id}')`,function(err,data){
+        console.log(data);
+        if (data.affectedRows===1){
+            res.send('ok');
+        }
+    });
+
+});
 
 module.exports = router;
