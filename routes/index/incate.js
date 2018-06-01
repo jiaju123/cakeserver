@@ -10,6 +10,15 @@ router.get('/',function(req,res){
         res.json(data);
     })
 });
+router.post('/addcar',function(req,res){
+    let data=req.body;
+    let id=data.gid;
+    query(`insert into car (name,taste,price,count,gid) values ('','','','','${id}')`,function(err,data){
+        if (data.affectedRows===1){
+            res.send('ok');
+        }
+    });
+});
 // router.post("/addcar", function (req, res) {
 //     let name = req.body.name;
 //     let taste = req.body.taste;

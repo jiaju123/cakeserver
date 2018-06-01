@@ -20,7 +20,6 @@ router.post('/xinxi',function(req,res){
             res.send('ok');
         }
     });
-
 });
 
 module.exports = router;
