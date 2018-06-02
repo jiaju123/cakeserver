@@ -6,21 +6,23 @@ var router = new express();
 var query = require("../../lib/pool");
 
 router.get('/',function(req,res){
-    query("select * from goods",function(err,data){
+    let id=this.$route.query.id;
+    query(`select * from goods where cid='${id}'`,function(err,data){
         res.json(data);
     })
 });
 router.post('/addcar',function(req,res){
     let data=req.body;
     let id=data.gid;
-    query(`insert into car (name,taste,price,count,gid) values ('','','','','${id}')`,function(err,data){
-        if(!req.session.login) {
-            res.send('no')
-        };
-        if (data.affectedRows===1){
-            res.send('ok');
-        }
-    });
+    if(!req.session.login) {
+        res.send('no')
+    }else{
+        query(`insert into car (name,taste,price,count,gid) values ('','','','','${id}')`,function(err,data){
+            if (data.affectedRows===1){
+                res.send('ok');
+            }
+        });
+    }
 });
 // router.post("/addcar", function (req, res) {
 //     let name = req.body.name;
