@@ -14,6 +14,9 @@ router.post('/addcar',function(req,res){
     let data=req.body;
     let id=data.gid;
     query(`insert into car (name,taste,price,count,gid) values ('','','','','${id}')`,function(err,data){
+        if(!req.session.login) {
+            res.send('no')
+        };
         if (data.affectedRows===1){
             res.send('ok');
         }

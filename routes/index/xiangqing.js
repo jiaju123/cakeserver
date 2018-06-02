@@ -13,13 +13,13 @@ router.post('/xinxi',function(req,res){
     let id=data.id;
     let text=data.text;
     let count=data.count;
-    console.log(id,text,count);
-    query(`insert into car (name,taste,price,count,gid) values ('','${text}','','${count}','${id}')`,function(err,data){
-        console.log(data);
-        if (data.affectedRows===1){
-            res.send('ok');
-        }
-    });
+        query(`insert into car (name,taste,price,count,gid) values ('','${text}','','${count}','${id}')`,function(err,data){
+            if(!req.session.login){
+                res.send('no');
+            }else if(data.affectedRows===1){
+                res.send('ok');
+            }
+        });
 });
 
 module.exports = router;

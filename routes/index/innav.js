@@ -6,6 +6,7 @@ var router = new express();
 var query = require("../../lib/pool");
 
 router.get('/',function(req,res){
+
     query("select * from category",function(err,data){
         if (err) throw err;
         res.json(data);
